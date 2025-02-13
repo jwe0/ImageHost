@@ -13,6 +13,7 @@ function login() {
     .then((response) => response.json())
     .then((data) => {
         if (data.message === "Login successful") {
+            document.cookie = `token=${data.token}; path=/`;
             window.location.href = "/home";
         }
     })
@@ -25,7 +26,7 @@ function login() {
 export default function Login() {
     return (
         <div>
-            <h1>Login</h1>
+            <h1><u>Login</u></h1>
             <input type="text" placeholder="Username" id="username"/><br></br>
             <input type="password" placeholder="Password" id="password"/><br></br>
             <button onClick={login}>Submit</button>

@@ -21,7 +21,7 @@ export default function Files() {
 
     return (
         <div className="info">
-            <h1>Files</h1>
+            <h1><u>Files</u></h1>
             <ul>
                 {files.map((file) => (
                     <a href={file.path}>

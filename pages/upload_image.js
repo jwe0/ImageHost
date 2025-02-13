@@ -35,7 +35,7 @@ function upload(event) {
 export default function upload_image() {
     return (
         <div className="info">
-            <h1>Upload Image</h1>
+            <h1><u>Upload Image</u></h1>
             <p id="status"></p>
             <input type="file" id="file" name="file" accept="image/*" onChange={upload}/>
             <p id="url"></p>

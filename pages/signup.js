@@ -25,7 +25,7 @@ function signup() {
 export default function Signup() {
     return (
         <div>
-            <h1>Signup</h1>
+            <h1><u>Sign up</u></h1>
             <input type="text" placeholder="Username" id="username"/><br></br>
             <input type="password" placeholder="Password" id="password"/><br></br>
             <input type="email" placeholder="Email" id="email"/><br></br>

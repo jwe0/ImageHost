@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev && node db_init.js",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "cookies-next": "^5.1.0",
     "multer": "^1.4.5-lts.1",
     "next": "15.1.7",
     "react": "^19.0.0",

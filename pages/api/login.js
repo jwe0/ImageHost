@@ -1,4 +1,5 @@
 import crypto from 'crypto';
+import { serialize } from 'v8';
 const sqlite3 = require('sqlite3').verbose();
 const db = new sqlite3.Database('./db/users.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE)
 
@@ -19,7 +20,7 @@ export default async function handler(req, res) {
             var token_ = crypto.randomBytes(16).toString('hex');
             var token = crypto.createHash('sha256').update(token_ + hashedPassword + salt).digest('hex');
             db.run(`UPDATE users SET token = ? WHERE username = ?`, [token, username]);
-            res.setHeader('Set-Cookie', `token=${token}`);
+            res.setHeader('Set-Cookie', serialize('token', token, { httpOnly: true, path: '/', sameSite: 'lax' }));
             res.status(200).json({ 
                 message: "Login successful",
                 token: token
